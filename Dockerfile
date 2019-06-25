@@ -11,10 +11,10 @@ RUN unzip -o $PROTOC_ZIP -d /usr/local bin/protoc
 RUN unzip -o $PROTOC_ZIP -d /usr/local include/*
 RUN rm -f $PROTOC_ZIP
 
-ENV export GOPATH="/root/go"
-ENV export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
+ENV GOPATH="/root/go"
+ENV PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
 
-ENV go get github.com/pkg/errors
-ENV go get github.com/golang/protobuf/proto
-ENV go get github.com/gorilla/mux
-ENV go get github.com/rcrowley/go-metrics
+RUN go get github.com/pkg/errors
+RUN go get github.com/golang/protobuf/proto
+RUN go get github.com/gorilla/mux
+RUN go get github.com/rcrowley/go-metrics
