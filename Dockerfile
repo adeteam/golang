@@ -1,4 +1,4 @@
-FROM golang:1.12.2
+FROM golang:1.13.3
 
 ARG PROTOC_ZIP=protoc-3.5.1-linux-x86_64.zip
 
