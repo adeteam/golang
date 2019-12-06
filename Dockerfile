@@ -1,9 +1,13 @@
-FROM golang:1.13.3
+FROM ubuntu:16.04
 
 ARG PROTOC_ZIP=protoc-3.5.1-linux-x86_64.zip
 
+RUN add-apt-repository ppa:longsleep/golang-backports
+
 RUN apt update
 RUN apt install -y zip unzip
+RUN apt install -y golang golang-1.13.4
+RUN apt install -y libc6
 
 RUN cd /tmp
 RUN curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.5.1/$PROTOC_ZIP
