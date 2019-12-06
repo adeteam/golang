@@ -2,6 +2,8 @@ FROM ubuntu:16.04
 
 ARG PROTOC_ZIP=protoc-3.5.1-linux-x86_64.zip
 
+RUN apt update
+RUN apt-get install -y software-properties-common
 RUN add-apt-repository ppa:longsleep/golang-backports
 
 RUN apt update
@@ -22,3 +24,5 @@ RUN go get github.com/pkg/errors
 RUN go get github.com/golang/protobuf/proto
 RUN go get github.com/gorilla/mux
 RUN go get github.com/rcrowley/go-metrics
+
+RUN apt autoremove && rm -rf /var/lib/apt/lists/* && apt clean && rm -rf /tmp/*
