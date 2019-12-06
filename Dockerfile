@@ -9,8 +9,7 @@ RUN add-apt-repository ppa:longsleep/golang-backports
 RUN apt update
 RUN apt install -y zip unzip
 RUN apt install -y golang golang-1.13
-RUN apt install -y libc6
-RUN apt install -y curl
+RUN apt install -y libc6 curl git
 
 RUN cd /tmp
 RUN curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.5.1/$PROTOC_ZIP
