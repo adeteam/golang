@@ -10,6 +10,7 @@ RUN apt update
 RUN apt install -y zip unzip
 RUN apt install -y golang golang-1.14
 RUN apt install -y libc6 curl git
+RUN apt install -y jq build-essential gcc-multilib gcc-mingw-w64 mingw-w64 mono-devel openssl osslsigncode
 
 RUN cd /tmp
 RUN curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.5.1/$PROTOC_ZIP
