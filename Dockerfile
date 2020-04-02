@@ -2,6 +2,8 @@ FROM ubuntu:18.04
 
 ARG PROTOC_ZIP=protoc-3.5.1-linux-x86_64.zip
 
+RUN export DEBIAN_FRONTEND=noninteractive
+
 RUN apt update
 RUN apt-get install -y software-properties-common
 RUN add-apt-repository ppa:longsleep/golang-backports
@@ -10,6 +12,8 @@ RUN apt update
 RUN apt install -y zip unzip
 RUN apt install -y golang golang-1.14
 RUN apt install -y libc6 curl git
+
+RUN ln -fs /usr/share/zoneinfo/UTC /etc/localtime
 RUN apt install -y jq build-essential gcc-multilib gcc-mingw-w64 mingw-w64 mono-devel openssl osslsigncode
 
 RUN cd /tmp
